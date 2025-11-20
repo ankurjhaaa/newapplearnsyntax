@@ -79,8 +79,8 @@
                             <tr class="text-center">
                                 <td class="border p-2">
                                     @if ($course->image)
-                                        <img src="{{ asset('storage/' . $course->image) }}"
-                                            class="h-12 w-12 mx-auto rounded object-cover">
+                                        <img src="{{ $course->image }}" class="h-12 w-12 rounded mx-auto object-cover" />
+
                                     @else
                                         —
                                     @endif
