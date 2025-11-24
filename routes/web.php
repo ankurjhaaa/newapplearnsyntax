@@ -11,4 +11,7 @@ Route::prefix("api")->group(function () {
     Route::get("courses", function () {
         return Course::latest()->get();
     });
+    Route::delete("courses/{id}",function($id){
+        return Course::find($id)->delete();
+    });
 });
