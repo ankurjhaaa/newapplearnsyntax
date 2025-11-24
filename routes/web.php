@@ -7,11 +7,4 @@ Route::get('/', [CourseController::class, 'index'])->name('courses.index');
 Route::post('/courses', [CourseController::class, 'store'])->name('courses.store');
 Route::delete('/courses/{course}', [CourseController::class, 'destroy'])->name('courses.destroy');
 
-Route::prefix("api")->group(function () {
-    Route::get("courses", function () {
-        return Course::latest()->get();
-    });
-    Route::delete("courses/{id}",function($id){
-        return Course::find($id)->delete();
-    });
-});
+   
