@@ -11,6 +11,9 @@ class Course extends Model
         'description',
         'image',
         'duration',
-        'start_date'
+        'start_date',
+        'level',
+        'price',
+        'rating',
     ];
 }

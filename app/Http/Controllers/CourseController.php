@@ -20,11 +20,13 @@ class CourseController extends Controller
             'title' => 'required',
             'description' => 'nullable',
             'duration' => 'nullable',
-            'start_date' => 'nullable',
+            'level' => 'nullable',
+            'price' => 'nullable',
+            'rating' => 'nullable',
+            'start_date' => 'nullable|date',
             'image' => 'nullable|image|mimes:jpg,png,jpeg'
         ]);
 
-        // Initialize ImageKit
         $imageKit = new ImageKit(
             config('imagekit.public_key'),
             config('imagekit.private_key'),
@@ -32,23 +34,19 @@ class CourseController extends Controller
         );
 
         if ($request->hasFile('image')) {
-
             $file = $request->file('image');
             $fileData = base64_encode(file_get_contents($file));
 
-            // Upload to ImageKit
             $upload = $imageKit->upload([
                 "file" => $fileData,
                 "fileName" => time() . '.' . $file->getClientOriginalExtension(),
                 "folder" => "/courses"
             ]);
 
-            // Error check
             if ($upload->error) {
                 return back()->with('error', 'Image Upload Failed: ' . $upload->error->message);
             }
 
-            // ✔ Correct Image URL
             $data['image'] = $upload->result->url;
         }
 

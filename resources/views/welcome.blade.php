@@ -43,6 +43,21 @@
                 </div>
 
                 <div>
+                    <label class="font-medium">Level</label>
+                    <input type="text" name="level" class="w-full border rounded p-2" placeholder="Beginner / Advanced">
+                </div>
+
+                <div>
+                    <label class="font-medium">Price</label>
+                    <input type="text" name="price" class="w-full border rounded p-2" placeholder="e.g. ₹2000">
+                </div>
+
+                <div>
+                    <label class="font-medium">Rating</label>
+                    <input type="text" name="rating" class="w-full border rounded p-2" placeholder="e.g. 4.8">
+                </div>
+
+                <div>
                     <label class="font-medium">Start Date</label>
                     <input type="date" name="start_date" class="w-full border rounded p-2">
                 </div>
@@ -56,6 +71,7 @@
                     Add Course
                 </button>
             </form>
+
         </div>
 
         <!-- RIGHT TABLE (Responsive) -->
@@ -68,6 +84,9 @@
                         <tr>
                             <th class="p-2 border">Image</th>
                             <th class="p-2 border">Title</th>
+                            <th class="p-2 border">Level</th>
+                            <th class="p-2 border">Price</th>
+                            <th class="p-2 border">Rating</th>
                             <th class="p-2 border">Duration</th>
                             <th class="p-2 border">Start Date</th>
                             <th class="p-2 border">Action</th>
@@ -80,12 +99,15 @@
                                 <td class="border p-2">
                                     @if ($course->image)
                                         <img src="{{ $course->image }}" class="h-12 w-12 rounded mx-auto object-cover" />
-
                                     @else
                                         —
                                     @endif
                                 </td>
+
                                 <td class="border p-2">{{ $course->title }}</td>
+                                <td class="border p-2">{{ $course->level }}</td>
+                                <td class="border p-2">{{ $course->price }}</td>
+                                <td class="border p-2">{{ $course->rating }}</td>
                                 <td class="border p-2">{{ $course->duration }}</td>
                                 <td class="border p-2">{{ $course->start_date }}</td>
 
@@ -100,6 +122,8 @@
                             </tr>
                         @endforeach
                     </tbody>
+
+
 
                 </table>
             </div>
@@ -134,7 +158,22 @@
 
                 <div>
                     <label class="font-medium">Duration</label>
-                    <input type="text" name="duration" class="w-full border rounded p-2">
+                    <input type="text" name="duration" class="w-full border rounded p-2" placeholder="e.g. 2 Months">
+                </div>
+
+                <div>
+                    <label class="font-medium">Level</label>
+                    <input type="text" name="level" class="w-full border rounded p-2" placeholder="Beginner / Advanced">
+                </div>
+
+                <div>
+                    <label class="font-medium">Price</label>
+                    <input type="text" name="price" class="w-full border rounded p-2" placeholder="e.g. ₹2000">
+                </div>
+
+                <div>
+                    <label class="font-medium">Rating</label>
+                    <input type="text" name="rating" class="w-full border rounded p-2" placeholder="e.g. 4.8">
                 </div>
 
                 <div>
@@ -148,9 +187,10 @@
                 </div>
 
                 <button class="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
-                    Save Course
+                    Add Course
                 </button>
             </form>
+
         </div>
 
     </div>

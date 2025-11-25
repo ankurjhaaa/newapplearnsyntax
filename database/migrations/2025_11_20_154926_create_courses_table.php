@@ -14,8 +14,12 @@ return new class extends Migration {
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->string('image')->nullable();
             $table->string('duration')->nullable(); // e.g. "2 Months"
+            $table->string('image')->nullable();
+            $table->string('level')->nullable();
+            $table->string('price')->nullable();
+            $table->string('rating')->nullable();
+
             $table->date('start_date')->nullable();
             $table->timestamps();
         });
